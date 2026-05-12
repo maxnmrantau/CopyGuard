@@ -1,0 +1,47 @@
+{
+  "name": "copyguard-desktop",
+  "version": "1.0.0",
+  "description": "Desktop app untuk memverifikasi hasil copy folder dan mengumpulkan file yang belum tercopy.",
+  "main": "src/main.js",
+  "author": "Codex",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win portable",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^35.1.5",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.codex.copyguard",
+    "productName": "CopyGuard",
+    "asar": true,
+    "compression": "maximum",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/copyguard.ico",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "CopyGuard-${version}-portable.${ext}"
+    },
+    "portable": {
+      "artifactName": "CopyGuard-${version}-portable.${ext}",
+      "requestExecutionLevel": "user"
+    }
+  }
+}

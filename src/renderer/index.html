@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CopyGuard</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="header-icon">
+        <img src="../../assets/copyguard.png" alt="CopyGuard">
+      </div>
+      <div class="header-text">
+        <h1>COPYGUARD</h1>
+        <p>Verifikasi hasil copy folder dan kumpulkan file yang belum tercopy.</p>
+      </div>
+      <div class="badge">Desktop</div>
+    </header>
+
+    <section class="card">
+      <div class="card-title">Pilih Folder</div>
+      <div class="folder-row">
+        <article class="folder-group">
+          <div class="folder-label">Folder Sumber <span>ASLI</span></div>
+          <button class="folder-field" id="src-field" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            <span class="fp" id="src-lbl">Klik untuk pilih folder...</span>
+            <span class="fclear" id="src-clear" aria-label="Kosongkan sumber">x</span>
+          </button>
+          <div class="finfo" id="src-info"></div>
+        </article>
+
+        <article class="folder-group">
+          <div class="folder-label">Folder Tujuan <span>COPY</span></div>
+          <button class="folder-field" id="dst-field" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            <span class="fp" id="dst-lbl">Klik untuk pilih folder...</span>
+            <span class="fclear" id="dst-clear" aria-label="Kosongkan tujuan">x</span>
+          </button>
+          <div class="finfo" id="dst-info"></div>
+        </article>
+      </div>
+
+      <div class="card-title compact-title">Mode Pengecekan</div>
+      <div class="mode-box">
+        <button class="mode-btn" id="mode-name" type="button">
+          <strong>Nama Saja</strong>
+          <small>Abaikan ekstensi</small>
+        </button>
+        <button class="mode-btn active" id="mode-full" type="button">
+          <strong>Nama + Ekstensi</strong>
+          <small>Harus sama persis</small>
+        </button>
+        <button class="mode-btn" id="mode-path" type="button">
+          <strong>Path Relatif</strong>
+          <small>Nama + subfolder</small>
+        </button>
+      </div>
+      <div class="mode-desc" id="mode-desc"></div>
+
+      <button class="run-btn" id="run-btn" type="button" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        MULAI CEK
+      </button>
+    </section>
+
+    <section class="stats-row" id="stats-row">
+      <div class="stat total"><div class="stat-num" id="s-total">0</div><div class="stat-label">Total Sumber</div></div>
+      <div class="stat ok"><div class="stat-num" id="s-ok">0</div><div class="stat-label">Cocok</div></div>
+      <div class="stat missing"><div class="stat-num" id="s-missing">0</div><div class="stat-label">Hilang</div></div>
+      <div class="stat extra"><div class="stat-num" id="s-extra">0</div><div class="stat-label">Ekstra</div></div>
+    </section>
+
+    <section class="log-card">
+      <div class="prog-wrap" id="prog-wrap"><div class="prog-fill" id="prog-fill"></div></div>
+      <div class="log-header">
+        <div class="log-title"><div class="dot" id="dot"></div>LOG OUTPUT</div>
+        <div class="log-actions">
+          <button class="log-btn" id="btn-clear-log" type="button" disabled>Hapus Log</button>
+        </div>
+      </div>
+      <div class="filter-tabs" id="ftabs">
+        <button class="tab active" data-filter="all" type="button">Semua</button>
+        <button class="tab t-missing" data-filter="missing" type="button">Hilang</button>
+        <button class="tab t-ok" data-filter="ok" type="button">Cocok</button>
+      </div>
+      <div class="log-body" id="log-body">
+        <div class="empty-st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <p>Pilih dua folder lalu tekan Mulai Cek</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./renderer.js"></script>
+</body>
+</html>
