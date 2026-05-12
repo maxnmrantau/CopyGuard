@@ -1,3 +1,5 @@
+<img width="858" height="1025" alt="image" src="https://github.com/user-attachments/assets/8e44c7c6-4ecd-45a3-bd37-f5bc1efa2fbe" />
+
 # CopyGuard
 
 CopyGuard adalah aplikasi desktop Windows berbasis Electron untuk memverifikasi hasil proses copy folder. Aplikasi ini membantu memastikan file dari folder sumber benar-benar hadir di folder tujuan, sekaligus memisahkan file yang belum tercopy agar mudah ditangani ulang.
